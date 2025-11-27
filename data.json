@@ -1,0 +1,31 @@
+{
+  "aplicacao": {
+    "nome": "Rchat",
+    "versao": "1.0.0",
+    "descricao": "Chat simples local usando HTML, CSS, JS e Bootstrap",
+    "autor": "Seu Nome",
+    "data_criacao": "2025-11-27"
+  },
+  "mensagens_exemplo": [
+    {
+      "texto": "João: Olá pessoal!",
+      "tipo": "normal",
+      "timestamp": "10:30:45"
+    },
+    {
+      "texto": "Maria: Oi João!",
+      "tipo": "normal",
+      "timestamp": "10:30:52"
+    },
+    {
+      "texto": "Maria entrou no chat",
+      "tipo": "sistema",
+      "timestamp": "10:30:30"
+    }
+  ],
+  "configuracoes": {
+    "tema": "bootstrap",
+    "idioma": "pt-BR",
+    "persistencia": "localStorage"
+  }
+}

@@ -1,0 +1,529 @@
+/* ============================================
+   RCHAT - Estilos Futuristas e Modernos
+   ============================================ */
+
+/* Importar fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Define variáveis de cor */
+:root {
+  /* Gradientes principais */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  
+  /* Cores de fundo */
+  --bg-dark: #0a0e27;
+  --bg-darker: #050810;
+  --bg-card: #1a1f3a;
+  --bg-hover: #252d4d;
+  
+  /* Cores de texto */
+  --text-primary: #e0e6ff;
+  --text-secondary: #b0b8d4;
+  --text-muted: #7a8297;
+  
+  /* Cores de destaque */
+  --accent-1: #667eea;
+  --accent-2: #764ba2;
+  --accent-3: #f093fb;
+  --accent-4: #00f2fe;
+}
+
+/* ============================================
+   RESET E BASE
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg-darker);
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(240, 147, 251, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+html {
+  height: 100%;
+}
+
+/* ============================================
+   LAYOUT PRINCIPAL
+   ============================================ */
+
+.container-fluid.h-100 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-darker);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+header {
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  padding: 2rem;
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: floatEffect 15s ease-in-out infinite;
+}
+
+header .container {
+  position: relative;
+  z-index: 1;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: -1px;
+}
+
+header p {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes floatEffect {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, 20px); }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(102, 126, 234, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  animation: slideInUp 0.5s ease forwards;
+}
+
+.card:hover {
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 12px 48px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
+  border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 11px 11px 0 0;
+  padding: 1.25rem;
+}
+
+.card-header h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background: var(--bg-darker);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ============================================
+   INPUTS E CAMPOS
+   ============================================ */
+
+.form-control {
+  background-color: var(--bg-hover);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.form-control:focus {
+  background-color: var(--bg-card);
+  border-color: var(--accent-1);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.form-control:disabled {
+  background-color: rgba(102, 126, 234, 0.05);
+  border-color: rgba(102, 126, 234, 0.1);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* ============================================
+   BOTÕES
+   ============================================ */
+
+.btn {
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Botão Primário */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Botão Sucesso */
+.btn-success {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(79, 172, 254, 0.5);
+}
+
+.btn-success:active {
+  transform: translateY(0);
+}
+
+/* Botão Perigo */
+.btn-danger {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  box-shadow: 0 8px 20px rgba(245, 87, 108, 0.3);
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(245, 87, 108, 0.5);
+}
+
+.btn-danger:active {
+  transform: translateY(0);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* ============================================
+   ÁREA DE MENSAGENS
+   ============================================ */
+
+#mensagensContainer {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: 450px;
+  scroll-behavior: smooth;
+  flex: 1;
+}
+
+/* Scroll customizado */
+#mensagensContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+#mensagensContainer::-webkit-scrollbar-track {
+  background: var(--bg-darker);
+  border-radius: 10px;
+}
+
+#mensagensContainer::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-1) 0%, var(--accent-3) 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+}
+
+#mensagensContainer::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-1) 0%, var(--accent-2) 100%);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+  font-style: italic;
+}
+
+/* ============================================
+   MENSAGENS
+   ============================================ */
+
+.mensagem {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-left: 4px solid var(--accent-1);
+  word-wrap: break-word;
+  animation: slideInUp 0.3s ease;
+  line-height: 1.6;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.mensagem:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+  border-left-color: var(--accent-4);
+  box-shadow: 0 4px 12px rgba(79, 172, 254, 0.2);
+}
+
+/* Mensagens de Sistema */
+.mensagem.sistema {
+  background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+  border-left-color: var(--accent-3);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.mensagem.sistema:hover {
+  background: linear-gradient(135deg, rgba(240, 147, 251, 0.15) 0%, rgba(245, 87, 108, 0.15) 100%);
+  border-left-color: var(--accent-3);
+}
+
+.mensagem small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+/* ============================================
+   INPUT GROUP
+   ============================================ */
+
+.input-group {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.input-group .form-control {
+  flex: 1;
+}
+
+.input-group .btn {
+  white-space: nowrap;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+  background: linear-gradient(90deg, rgba(102, 126, 234, 0.05) 0%, rgba(240, 147, 251, 0.05) 100%);
+  border-top: 1px solid rgba(102, 126, 234, 0.2);
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+footer p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+@media (max-width: 768px) {
+  header {
+    padding: 1.5rem;
+  }
+  
+  header h1 {
+    font-size: 1.75rem;
+  }
+  
+  header p {
+    font-size: 0.85rem;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.8rem;
+  }
+  
+  #mensagensContainer {
+    max-height: 300px;
+    padding: 1rem;
+  }
+  
+  .mensagem {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .input-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .input-group .btn {
+    width: 100%;
+  }
+  
+  .row {
+    gap: 0.5rem !important;
+  }
+  
+  .col-md-6 {
+    flex: 0 0 100% !important;
+  }
+}
+
+/* ============================================
+   ACESSIBILIDADE
+   ============================================ */
+
+/* Melhorar visibilidade do focus para navegação por teclado */
+.btn:focus,
+.form-control:focus {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 2px;
+}
+
+/* Reduzir movimento para usuários que preferem */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
